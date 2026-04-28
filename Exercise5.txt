@@ -1,6 +1,8 @@
 Exercise 5:
 
 (a)
+proof:
+
     by the definition of ternary trees , we can get that a perfect banlance ternary tree is like this:
     
                                                 n1
