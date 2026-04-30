@@ -659,7 +659,7 @@ class SetTest {
 
         }
         
-       
+       System.out.println("1");
     }
 }
 
