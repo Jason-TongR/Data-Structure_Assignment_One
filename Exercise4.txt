@@ -9,9 +9,9 @@ Exercise 4:
     ===================================================================
 
     public class Node<Integer>{
-        Integer element;
-        Node<Integer> prev;
-        Node<Integer> next;
+        Integer value;
+        Node<Integer> left;
+        Node<Integer> right;
     }
 
     ===================================================================
@@ -30,8 +30,8 @@ Exercise 4:
             Node<Integer> subtree = stack.pop();
             if (subtree != null) {
                 res ++;
-                stack.push(subtree.prev);
-                stack.push(subtree.next);
+                stack.push(subtree.left);
+                stack.push(subtree.right);
             }
         }
         return res;   
@@ -77,9 +77,9 @@ Exercise 4:
     in my code , we have private method 1 :  "compute_size_of_tree" , in the lecture ,we have seen that the time complexity of it is O(n) in the worst case.
                                 
                                 method 2 :  "output_sorted_array_of_two_trees"  , in this method , we determine the smaller tree of two trees
-                                            and for each element in the smller one , we search it wheter it is in the other bigger one,
+                                            and for each element in the smaller one , we search it whether it is in the other bigger one,
                                             if is, then add it to our result array. since the while loop is the same structure of the method 1 ,
-                                            and in the lecture we learn that in AVL trees , the seach method is O(logn) in the worst case
+                                            and in the lecture we learn that in AVL trees , the search method is O(logn) in the worst case
                                             therefore , in our Algorithm , the worst time complexity is O(n*logn).
 
     ==============================================================================================================================================================
@@ -197,7 +197,7 @@ Exercise 4:
         
         public find_PreImage (function f , int n){
             
-            assert n >= 1 : "n must in the nature number";
+            assert n >= 1 : "n must in the natural number";
             
             this.n = n;
             
@@ -218,7 +218,7 @@ Exercise 4:
             
             while(low <= high){
                 int mid = low + (high - low)/2;
-                if( sorted_array.get(mid).eauals(j) ){
+                if( sorted_array.get(mid).equals(j) ){
                     return mid + 1;
                 }
                 else{
