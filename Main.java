@@ -412,12 +412,12 @@ class Set {
             root = child;
         }
         else{
-
-            if(parent.left == oldNode)
+            
+            if(parent.left == oldNode){
                 parent.left = child;
-            else
+            }else{
                 parent.right = child;
-
+            }
         }
     }
     /*  Worst-case time complexity is O(logn)
