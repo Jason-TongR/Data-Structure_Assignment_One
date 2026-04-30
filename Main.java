@@ -72,10 +72,10 @@ class Node {
         
         // The key of the root is right(compare with leftC and rightC)
         if (p.left != null && p.left.key >= p.key){
-            return false;                               // this is contration to the key of root must greater than the key of the left child
+            return false;                               // this is contradiction to the key of root must greater than the key of the left child
         }
         if (p.right != null && p.right.key <= p.key){
-            return false;                               // this is contration to the key of root must less than the key of the right child
+            return false;                               // this is contradiction to the key of root must less than the key of the right child
         }
         
         // The correctness for the height
@@ -84,7 +84,7 @@ class Node {
             return false;
         }
         
-        // BalanceFactor must be 1 0 0r -1
+        // BalanceFactor must be 1 0 or -1
         int num = balanceFactor(p);
         if (num < -1 || num > 1){
             return false;
@@ -208,7 +208,7 @@ class Set {
         Node cur = root;
         Stack<Node> path = new Stack<>();
         Node parent = null;
-        while ( cur != null ){          // intersection is always add the node to the lowest bounded of the tree , so the condition is that the current node must go to null at some
+        while ( cur != null ){          // insertion is always add the node to the lowest bounded of the tree , so the condition is that the current node must go to null at some
 
             parent = cur;               // let the parent node be the current node , and we will consider three cases in the follow
             
@@ -622,7 +622,7 @@ class SetTest {
 
 
     /*
-        test 7 is Exercise 11 (f)
+        test 6 is Exercise 11 (f)
     */
     static void test6(){
          //Arrange
