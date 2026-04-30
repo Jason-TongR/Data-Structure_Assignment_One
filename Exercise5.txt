@@ -55,12 +55,12 @@ proof:
 (b)
 proof:
 
-    note that n <= NB(h) for all h in the nature number.
+    note that n <= NB(h) for all h in the natural numbers.
     
     so n <= (3^h - 1)/2 <= (0.5)*3^h
     
-    now (0.5)*3^h is belong to O(3^h) , beacase we can take N := 1 , c := 1 , 
-    then it is trivial true that for all h >= N , (0.5)*3^h <= c*3^h 
+    now (0.5)*3^h belongs to O(3^h) , because we can take N := 1 , c := 1 , 
+    then it is trivially true that for all h >= N , (0.5)*3^h <= c*3^h 
     
     so n is belong to O(3^h).    Q.E.D
 
