@@ -591,7 +591,7 @@ class SetTest {
         
         assert (Node.checkInvariant(after_rotation_tree)) : "the after_rotation tree should be Invariant";
 
-      
+       
     }
 
 
