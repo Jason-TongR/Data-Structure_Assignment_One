@@ -659,7 +659,6 @@ class SetTest {
 
         }
         
-       System.out.println("2");
     }
 }
 
