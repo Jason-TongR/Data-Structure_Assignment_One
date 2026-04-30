@@ -473,6 +473,8 @@ class SetTest {
             
             assert (s.checkInvariant()) : "this tree should be Invariant";                      // this is to check the invariant preserved
         }
+
+        System.out.println("1");
     }
 
     
@@ -497,6 +499,7 @@ class SetTest {
             
             assert (s.checkInvariant()) : "this tree should be Invariant";                      // this is to check the invariant preserved
         }
+        System.out.println("2");
     }
 
 
@@ -541,7 +544,9 @@ class SetTest {
         //Assert
         
         assert (Node.checkInvariant(after_rotation_tree)) : "the after_rotation_tree should be Invariant";
+       
         
+        System.out.println("3");
     }
 
 
@@ -586,6 +591,7 @@ class SetTest {
         
         assert (Node.checkInvariant(after_rotation_tree)) : "the after_rotation tree should be Invariant";
 
+        System.out.println("4");
     }
 
 
@@ -618,6 +624,8 @@ class SetTest {
             assert (s.checkInvariant()) : "s should be invariant";              // to check the invariant
 
         }
+
+        System.out.println("5");
     }
 
 
@@ -651,6 +659,7 @@ class SetTest {
 
         }
         
+        System.out.println("6");
     }
 }
 
