@@ -96,84 +96,42 @@ Exercise 4:
     our Algorithm is:
 
     ============================================================================================================================================================
-    private Node<Integer> smallest_Node_BiggerEqual_than_number(Node<Integer> root , int l){
-        
-        assert root != null;
-        
-        if( (root.value <= l) && (root.next.value == null || root.next.value > l)  ){
-            return root;
-        }
-        else{
-            if(root.value < l){
-                if(max_of_tree(root).value < l){    //this method is almost the same as Exercise 3 , in AVL tree , the worst case is almost O(logn)
-                    return max_of_tree(root);  
-                }
-                else{
-                    return smallest_Node_BiggerEqual_than_number(root.next , l);
-                }
-            }
-            
-            else{
-                if(min_of_tree(root).value >= l){
-                    return min_of_tree(root);       //this method is almost the same as Exercise 3 , in AVL tree , the worst case is almost O(logn)
-                }
-                else{
-                    return smallest_Node_BiggerEqual_than_number(root.prev , l);
-                }
-            }
-        }
+
+    public int sum_of_the_value_in_interval(int l, int r, Node<Integer> A) {
+       
+        return inorderSum(A, l, r);
+
     }
 
-
-    private Node<Integer> find_smallest_bigger_one(Node<Integer> node){
-        if(node.next != null){
-            Node y = node.next;
-            while(y.prev != null){
-                y = y.prev;
-            }
-            return y;
+    private int inorderSum(Node<Integer> node, int l, int r) {
+        
+        if (node == null) return 0;
+        
+        int sum = 0;
+        
+        if (node.value > l) {
+            sum += inorderSum(node.left, l, r);
         }
         
-        else{
-            Node y = node.parent
-            while(y != null && node == y.right){
-                node = y;
-                y = y.parent;
-            }
-            return y;
-        }
-    }
-
-
-
-    public int sum_of_the_value_in_interval(int l , int r , Node<Integer> A){
-        
-        Node<Integer> node_smaller = smallest_Node_BiggerEqual_than_number(A , l);
-        
-        int sum = node_smaller.value;
-        
-        while(node_smaller != null && node_smaller.value <= r){
-            sum += node_smaller.value;
-            node_smaller = find_smallest_bigger_one(node_smaller);
+        if (node.value >= l && node.value <= r) {
+            sum += node.value;
         }
         
+        if (node.value < r) {
+            sum += inorderSum(node.right, l, r);
+        }
+
         return sum;
+
     }
 
 
     COMMENT:
 
-
-    in our code , we have 3 methods . method 1 : "smallest_Node_BiggerEqual_than_number" : we are using recursive to do , 
-                                                and the method "max_of_tree(root).value" and "min_of_tree(root)" take logn in AVL trees , so the time complexity is O(logn)
-                                    
-                                    method 2 : "find_smallest_bigger_one" this is O(1)
-                                    
-                                    method 3 : "sum_of_the_value_in_interval" , by hypothesis , all node in this tree without duplicates , so in worst case it take O(r-l)
-                                    
-                                    
-                                    Therefore , our Algorithm has the stated worse case time complexity O(logn + (r-l)).
-
+    Each node is visited at most once, and only the nodes whose values fall within the interval, along with some nodes on the paths from the root to those nodes, are visited.
+    Assuming the height of the binary tree is O(log n) (property of an AVL tree), and let m be the number of nodes actually within the interval (m ≤ r−l+1), then the total number of visited nodes is O(log n + m).
+    Therefore, the time complexity is O(log n + (r−l))
+   
 
     ============================================================================================================================================================================
 
